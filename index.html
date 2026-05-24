@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abre aqui ❤️</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f0f14;
+      font-family: sans-serif;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,70,85,0.25);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 370px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .logo-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #ff4655;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+    }
+
+    .titulo {
+      font-size: 19px;
+      font-weight: 500;
+      color: #fff;
+      text-align: center;
+    }
+
+    .subtitulo {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .divisor {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,70,85,0.15);
+    }
+
+    .grupo-input {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 5px;
+      display: block;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .input {
+      width: 100%;
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,70,85,0.2);
+      background: rgba(255,255,255,0.06);
+      font-size: 14px;
+      color: #fff;
+      outline: none;
+    }
+
+    .input:focus {
+      border-color: #ff4655;
+      box-shadow: 0 0 0 3px rgba(255,70,85,0.15);
+    }
+
+    .btn-entrar {
+      width: 100%;
+      height: 44px;
+      border-radius: 8px;
+      background: #ff4655;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .btn-sim {
+      flex: 1;
+      height: 48px;
+      border-radius: 8px;
+      background: #ff4655;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .btn-nao {
+      flex: 1;
+      height: 48px;
+      border-radius: 8px;
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: pointer;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .btn-full {
+      width: 100%;
+      height: 44px;
+      border-radius: 8px;
+      background: #ff4655;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .btn-voltar {
+      width: 100%;
+      height: 44px;
+      border-radius: 8px;
+      background: transparent;
+      color: rgba(255,255,255,0.6);
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: pointer;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .erro {
+      font-size: 12px;
+      color: #ff4655;
+      text-align: center;
+      min-height: 16px;
+    }
+
+    .tag {
+      font-size: 10px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 4px;
+      background: rgba(255,70,85,0.15);
+      color: #ff4655;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,70,85,0.3);
+    }
+
+    .badge-win {
+      padding: 5px 14px;
+      border-radius: 4px;
+      background: rgba(255,70,85,0.15);
+      border: 1px solid rgba(255,70,85,0.4);
+      color: #ff4655;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .badge-lose {
+      padding: 5px 14px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.4);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .emoji-grande {
+      font-size: 64px;
+      line-height: 1;
+    }
+
+    .resposta-titulo {
+      font-size: 22px;
+      font-weight: 500;
+      text-align: center;
+      color: #fff;
+      line-height: 1.4;
+    }
+
+    .resposta-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .pergunta-texto {
+      font-size: 20px;
+      font-weight: 500;
+      color: #fff;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .destaque { color: #ff4655; }
+  </style>
+</head>
+<body>
+
+  <!-- TELA DE LOGIN -->
+  <div class="card" id="tela-login">
+    <div class="logo-icon">🎀</div>
+    <p class="titulo">Olá! 💌</p>
+    <p class="subtitulo">Tenho uma surpresa pra você.<br>Entre com suas credenciais!</p>
+    <div class="divisor"></div>
+    <div class="grupo-input">
+      <div>
+        <label class="label" for="usuario">Usuário</label>
+        <input class="input" type="text" id="usuario" placeholder="seu usuário" autocomplete="off" />
+      </div>
+      <div>
+        <label class="label" for="senha">Senha</label>
+        <input class="input" type="password" id="senha" placeholder="••••••••" />
+      </div>
+    </div>
+    <p class="erro" id="erro"></p>
+    <button class="btn-entrar" onclick="entrar()">Entrar ✦</button>
+  </div>
+
+  <!-- TELA DA PERGUNTA -->
+  <div class="card" id="tela-pergunta" style="display:none">
+    <span class="tag">✦ Convite especial ✦</span>
+    <div class="emoji-grande">🎮</div>
+    <p class="pergunta-texto">Você aceita jogar<br><span class="destaque">Valorant</span> comigo?</p>
+    <div class="btn-row">
+      <button class="btn-sim" onclick="resposta('sim')">✓ Sim!</button>
+      <button class="btn-nao" onclick="resposta('nao')">✗ Não</button>
+    </div>
+  </div>
+
+  <!-- TELA DO SIM -->
+  <div class="card" id="tela-sim" style="display:none">
+    <span class="badge-win">✦ GG EZ ✦</span>
+    <div class="emoji-grande">🏆</div>
+    <p class="resposta-titulo">VAMOOOO!!<br>É CLUTCH!! 🔥</p>
+    <p class="resposta-sub">Sabia que você ia aceitar! Já prepara o PC, calibra o mouse e avisa quando tiver online. Vai ser épico jogar junto!</p>
+    <button class="btn-full" onclick="reiniciar()">↺ Jogar de novo</button>
+  </div>
+
+  <!-- TELA DO NÃO -->
+  <div class="card" id="tela-nao" style="display:none">
+    <span class="badge-lose">✦ DEFEAT ✦</span>
+    <div class="emoji-grande">💔</div>
+    <p class="resposta-titulo">AFF...<br>Tomei spike rush no coração</p>
+    <p class="resposta-sub">Tá bom então... vou jogar sozinha, sem duo, sem ninguém... 😔</p>
+    <button class="btn-voltar" onclick="voltar()">← Deixa eu repensar...</button>
+  </div>
+
+  <script>
+    function mostrar(id) {
+      var telas = ['tela-login', 'tela-pergunta', 'tela-sim', 'tela-nao'];
+      telas.forEach(function(tela) {
+        document.getElementById(tela).style.display = tela === id ? 'flex' : 'none';
+      });
+    }
+
+    function entrar() {
+      var usuario = document.getElementById('usuario').value.trim().toUpperCase();
+      var senha = document.getElementById('senha').value.trim();
+      var erro = document.getElementById('erro');
+      if (usuario === 'adm' && senha === '123') {
+        erro.textContent = '';
+        mostrar('tela-pergunta');
+      } else {
+        erro.textContent = '⚠ Usuário ou senha incorretos.';
+        document.getElementById('senha').value = '';
+        document.getElementById('senha').focus();
+      }
+    }
+
+    function resposta(escolha) {
+      mostrar(escolha === 'sim' ? 'tela-sim' : 'tela-nao');
+    }
+
+    function reiniciar() {
+      document.getElementById('usuario').value = '';
+      document.getElementById('senha').value = '';
+      mostrar('tela-login');
+    }
+
+    function voltar() {
+      mostrar('tela-pergunta');
+    }
+
+    document.getElementById('usuario').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') document.getElementById('senha').focus();
+    });
+
+    document.getElementById('senha').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') entrar();
+    });
+  </script>
+
+</body>
+</html>
